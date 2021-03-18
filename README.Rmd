@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ggreach is to is to provide custom REACH-themed plotting and palette functions that integrate into ggplot figures
+The goal of ggreach is to facilitate custom REACH-themed plotting and palette functions that integrate into ggplot figures
 
 ## Installation
 

@@ -7,7 +7,7 @@
 
 <!-- badges: end -->
 
-The goal of ggreach is to is to provide custom REACH-themed plotting and
+The goal of ggreach is to facilitate custom REACH-themed plotting and
 palette functions that integrate into ggplot figures
 
 ## Installation
