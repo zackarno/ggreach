@@ -1,0 +1,70 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ggreach
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of ggreach is to is to provide custom REACH-themed plotting and palette functions that integrate into ggplot figures
+
+## Installation
+
+
+
+You can download the latest development version of the package on [GitHub](https://github.com/) with:
+
+``` {r, eval=F}
+# install.packages("devtools")
+devtools::install_github("zackarno/ggreach")
+```
+## Example
+
+```{r example, message = FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggreach)
+## basic example code
+```
+
+### Discrete color scale
+
+Using the iris data set we can do a simple geom point plot and add the scale_reach_color argument. The default setting is discrete colors
+
+```{r discrete_color}
+iris %>% 
+  ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Species))+
+  geom_point()+
+  scale_color_reach()+
+  theme_bw()
+```
+
+### Continuous color scale
+To get a continuous color scale  you need to specify discrete as F and specify a REACH palette you want to use
+```{r continuous color}
+iris %>% 
+  ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Sepal.Width))+
+  geom_point()+
+  scale_color_reach(palette = "reds",discrete = F)+
+  theme_bw()
+```
+
+### Continuous color scale
+```{r cars}
+iris %>% 
+  ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Species))+
+  geom_point()+
+  scale_color_reach(reverse = T)
+```

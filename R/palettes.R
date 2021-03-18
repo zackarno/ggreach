@@ -1,11 +1,11 @@
 
 reach_colors <- c(
-  `lightred`        = "#f7cccdff",
+  `lightred`  = "#f7cccdff",
   `darkred` = "#EE5859",
-  `lightgrey`      = "#D1D3D4",
+  `lightgrey`      = "#eeefeeff",
   `darkgrey` = "#58585A",
-  `lightbeige` = "#D2CBB8",
-  `darkbeige`="#D2CBB84D"
+  `lightbeige` = "#f4f2ecff",
+  `darkbeige`="#d9d3c2ff"
 )
 
 
@@ -19,8 +19,10 @@ reach_cols <- function(...) {
 }
 
 reach_palettes<- list(
-  `main` = reach_cols("darkred", "lightbeige","darkgrey"),
-  `red` = reach_cols("light","darkred")
+  `main` = reach_cols("darkred", "darkbeige","darkgrey"),
+  `reds` = reach_cols("light","darkred"),
+  `beiges` = reach_cols("lightbeige","darkbeige"),
+  `greys` = reach_cols("lightgrey","darkgrey")
 )
 
 #' Return function to interpolate a drsimonj color palette
