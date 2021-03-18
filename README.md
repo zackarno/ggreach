@@ -59,13 +59,7 @@ iris %>%
 
 <img src="man/figures/README-continuous color-1.png" width="100%" />
 
-### Continuous color scale
-
-``` r
-iris %>% 
-  ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Species))+
-  geom_point()+
-  scale_color_reach(reverse = T)
-```
-
-<img src="man/figures/README-cars-1.png" width="100%" />
+Currently only the following palettes are available :
+‘main’(categorical), ‘reds’, ‘greys’, ‘beiges’. However we will soon
+be integrate 2 and three color continuous color scales which will the
+colorbrewer naming convention (i.e GrRd, YlGrRd)
