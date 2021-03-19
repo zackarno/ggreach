@@ -5,7 +5,13 @@ reach_colors <- c(
   `lightgrey`      = "#eeefeeff",
   `darkgrey` = "#58585A",
   `lightbeige` = "#f4f2ecff",
-  `darkbeige`="#d9d3c2ff"
+  `darkbeige`="#d9d3c2ff",
+  `lightgreen`= "#A5C9A1",
+  `orange` = "#F69E61",
+  `yellow`= "#FFF67A",
+  `medgreen`= "#72966E",
+  `lightblue` = "#56B3CD",
+  `medblue` = "#0067A9"
 )
 
 
@@ -20,7 +26,8 @@ reach_cols <- function(...) {
 
 reach_palettes<- list(
   `main` = reach_cols("darkred", "darkbeige","darkgrey"),
-  `reds` = reach_cols("light","darkred"),
+  `reds` = reds,
+  # `reds` = reach_cols("light","darkred"),
   `beiges` = reach_cols("lightbeige","darkbeige"),
   `greys` = reach_cols("lightgrey","darkgrey")
 )
