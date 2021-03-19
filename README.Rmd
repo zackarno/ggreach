@@ -51,14 +51,29 @@ iris %>%
   theme_bw()
 ```
 
-Often when assessment data is crunched (via butteR or HypegrammaR) the results are a long format data set. These long format datasets are also very easily piped into ggplot. The **scale_fill_reach** function will fill barplot with REACH-palette colors
+Often when assessment data is crunched (via butteR or HypegrammaR) the results are a long format data set. These long format datasets are also very easily piped into ggplot. The **scale_fill_reach** function will fill barplot with REACH-palette colors.
+
+First I relevel a categorical variable so that the bars will be displayed in the desired order.
+
 
 ```{r assessment_results_discrete}
-assessment_results %>% 
-  filter(variable=="i.income_cat") %>% 
+income_levels<- assessment_results %>% 
+  filter(variable=="i.income_cat", population=="combined") %>% 
+  mutate(variable_val= forcats::fct_relevel(variable_val,c("Very Poor","Poor","Middle","High","Higher")))
+
+
+income_levels %>% 
   ggplot(aes(x=variable_val,y=`mean/pct`, fill=subset_1_val))+
   geom_bar(stat="identity",position=position_dodge(width=0.9))+
-  coord_flip()+
+  geom_errorbar(aes(ymin= `mean/pct_low`,
+                    ymax= `mean/pct_upp`), 
+                width=0.4,
+                position = position_dodge(width = 0.9)
+  )+
+  scale_y_continuous(labels = scales::percent,
+                     breaks = seq(0,1,by=0.15),
+                     limits = c(0,1))+
+coord_flip()+
   scale_fill_reach()+
   theme_bw()+
   theme(
