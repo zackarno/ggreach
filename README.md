@@ -67,19 +67,31 @@ assessment_results %>%
 ### Continuous color scale
 
 To get a continuous color scale you need to specify discrete as F and
-specify a REACH palette you want to use
+specify a REACH palette you want to use.
 
 ``` r
 iris %>% 
   ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Sepal.Width))+
   geom_point()+
-  scale_color_reach(palette = "oranges",discrete = F)+
+  scale_color_reach(palette = "reds",discrete = F)+
   theme_bw()
 ```
 
 <img src="man/figures/README-continuous color-1.png" width="100%" />
 
-Currently only the following palettes are available :
-‘main’(categorical), ‘reds’, ‘greys’, ‘beiges’. However we will soon
-be integrate 2 and three color continuous color scales which will the
-colorbrewer naming convention (i.e GrRd, YlGrRd)
+There are now multiple singleband palettes
+
+``` r
+iris %>% 
+  ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Sepal.Width))+
+  geom_point()+
+  scale_color_reach(palette = "lightgreens",discrete = F)+
+  theme_bw()
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+Currently there are about 12 singleband color palettes based on the
+REACH Graphic Charter and just 2 categorical palettes available
+(\`classic’, ‘classic\_extended’). However, we will be integrating more
+categorical and dual & tri-color ramps.
