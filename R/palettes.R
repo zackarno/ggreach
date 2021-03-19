@@ -1,17 +1,29 @@
 
+
+
+
 reach_colors <- c(
-  `lightred`  = "#f7cccdff",
-  `darkred` = "#EE5859",
-  `lightgrey`      = "#eeefeeff",
-  `darkgrey` = "#58585A",
-  `lightbeige` = "#f4f2ecff",
-  `darkbeige`="#d9d3c2ff",
-  `lightgreen`= "#A5C9A1",
-  `orange` = "#F69E61",
-  `yellow`= "#FFF67A",
-  `medgreen`= "#72966E",
-  `lightblue` = "#56B3CD",
-  `medblue` = "#0067A9"
+  `lightred`  = singleband$reds[2],
+  `medred`  = singleband$reds[11],
+  `darkred` = singleband$reds[18],
+  `lightgrey`      = singleband$darkgreys[2],
+  `medgrey`      = singleband$darkgreys[11],
+  `darkgrey`      = singleband$darkgreys[18],
+  `lightbeige` = singleband$beiges[2],
+  `medbeige` = singleband$beiges[11],
+  `darkbeige` = singleband$beiges[18],
+  `lightgreen` = singleband$lightgreens[2],
+  `green` = singleband$lightgreens[11],
+  `darkgreen` = singleband$lightgreens[18],
+  `lightyellow` = singleband$yellows[2],
+  `medyellow` = singleband$yellows[11],
+  `darkyellow` = singleband$yellows[18],
+  `lightorange` = singleband$oranges[2],
+  `medorange` = singleband$oranges[11],
+  `darkorange` = singleband$oranges[18],
+  `lightblue` = singleband$lightblues[2],
+  `medblue` = singleband$lightblues[11],
+  `darkblue` = singleband$lightblues[18]
 )
 
 
@@ -25,10 +37,19 @@ reach_cols <- function(...) {
 }
 
 reach_palettes<- list(
-  `main` = reach_cols("darkred", "darkbeige","darkgrey"),
-  `reds` = reds,
-  # `reds` = reach_cols("light","darkred"),
-  `beiges` = reach_cols("lightbeige","darkbeige"),
+  `classic` = reach_cols("medred", "medbeige", "medgrey"),
+  `classic_extended` = reach_cols("medred", "medbeige", "medgrey", "medorange", "medgreen","medblue"),
+  `cool_to_hot` = reach_cols("lightgreen", "darkred"),
+  `darkgrey`= singleband$darkgreys,
+  `lightgreys`= singleband$lightgreys,
+  `beiges`= singleband$beiges,
+  `reds` = singleband$reds,
+  `oranges` = singleband$oranges,
+  `yellows` = singleband$yellows,
+  `lightgreens` = singleband$lightgreens,
+  `medgreens` = singleband$medgreens,
+  `lightblues` = singleband$lightblues,
+  `medblues` = singleband$medblues,
   `greys` = reach_cols("lightgrey","darkgrey")
 )
 
@@ -38,7 +59,7 @@ reach_palettes<- list(
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #' @export
-reach_pal <- function(palette = "main", reverse = FALSE, ...) {
+reach_pal <- function(palette = "classic", reverse = FALSE, ...) {
   pal <- reach_palettes[[palette]]
 
   if (reverse) pal <- rev(pal)
@@ -57,7 +78,7 @@ reach_pal <- function(palette = "main", reverse = FALSE, ...) {
 #' @param ... Additional arguments to pass to colorRampPalette()
 #' @export
 
-scale_color_reach <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
+scale_color_reach <- function(palette = "classic", discrete = TRUE, reverse = FALSE, ...) {
   pal <- reach_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
@@ -78,7 +99,7 @@ scale_color_reach <- function(palette = "main", discrete = TRUE, reverse = FALSE
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #' @export
-scale_fill_reach <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
+scale_fill_reach <- function(palette = "classic", discrete = TRUE, reverse = FALSE, ...) {
   pal <- reach_pal(palette = palette, reverse = reverse)
 
   if (discrete) {

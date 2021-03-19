@@ -44,6 +44,26 @@ iris %>%
 
 <img src="man/figures/README-discrete_color-1.png" width="100%" />
 
+Often when assessment data is crunched (via butteR or HypegrammaR) the
+results are a long format data set. These long format datasets are also
+very easily piped into ggplot. The **scale\_fill\_reach** function will
+fill barplot with REACH-palette colors
+
+``` r
+assessment_results %>% 
+  filter(variable=="i.income_cat") %>% 
+  ggplot(aes(x=variable_val,y=`mean/pct`, fill=subset_1_val))+
+  geom_bar(stat="identity",position=position_dodge(width=0.9))+
+  coord_flip()+
+  scale_fill_reach()+
+  theme_bw()+
+  theme(
+    legend.title = element_blank()
+  )
+```
+
+<img src="man/figures/README-assessment_results_discrete-1.png" width="100%" />
+
 ### Continuous color scale
 
 To get a continuous color scale you need to specify discrete as F and
@@ -53,7 +73,7 @@ specify a REACH palette you want to use
 iris %>% 
   ggplot(aes(x=Sepal.Length,y=Sepal.Width, color=Sepal.Width))+
   geom_point()+
-  scale_color_reach(palette = "reds",discrete = F)+
+  scale_color_reach(palette = "oranges",discrete = F)+
   theme_bw()
 ```
 
