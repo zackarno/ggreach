@@ -4,7 +4,7 @@
 \alias{reach_pal}
 \title{Return function to interpolate a drsimonj color palette}
 \usage{
-reach_pal(palette = "main", reverse = FALSE, ...)
+reach_pal(palette = "classic", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in drsimonj_palettes}

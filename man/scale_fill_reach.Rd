@@ -4,7 +4,7 @@
 \alias{scale_fill_reach}
 \title{scale_color_reach}
 \usage{
-scale_fill_reach(palette = "main", discrete = TRUE, reverse = FALSE, ...)
+scale_fill_reach(palette = "classic", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in reach_palettes}
